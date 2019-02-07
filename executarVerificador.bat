@@ -1,0 +1,1 @@
+start java -jar dist/Verificador_de_queda_de_sites.jar

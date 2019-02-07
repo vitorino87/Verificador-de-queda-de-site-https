@@ -1,0 +1,10 @@
+Esse programa serve para verificar se o site https://sig.ufabc.edu.br
+está online.
+Se o site não estiver o programa executa uma janela allowTop, avisando.
+Se o site voltar ao normal, a mensagem some.
+
+Versão 0.1 - 07/02/2019:
+Features:
+- Possui um timer para fazer blink na mensagem de Alerta;
+- Possui um while infinito com Thread.sleep para pará-lo
+
