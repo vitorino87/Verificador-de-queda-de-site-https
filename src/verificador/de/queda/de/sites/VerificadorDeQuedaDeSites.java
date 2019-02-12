@@ -18,8 +18,8 @@ import view.PaginaForaDoAr;
  */
 public class VerificadorDeQuedaDeSites {
 
-    final int TIMEOUT = 20000;    //timeout em milessegundos, 20s
-    final int INTERVAL = 900000; //intervalo em milissegundos, 15 minutos
+    final int TIMEOUT = 60000;    //timeout em milessegundos, 1 min
+    final static int INTERVAL = 240000; //intervalo em milissegundos, 4 minutos
     final String HOST = "https://sig.ufabc.edu.br/sipac/"; //host ou página https
     /**
      * @param args the command line arguments
@@ -28,13 +28,16 @@ public class VerificadorDeQuedaDeSites {
     public static void main(String[] args) throws InterruptedException {        
         VerificadorDeQuedaDeSites v = new VerificadorDeQuedaDeSites();
         while(true){            
-            v.iniciar();
-            Thread.sleep(1000);
+            if(!v.iniciar()){
+                Thread.sleep(60000); //se v.iniciar() retornar falso, significa que o site está fora do ar e por isso o site será checado a cada 60 segundos, que é o timeout da função pingHost().
+            }else{
+                Thread.sleep(INTERVAL); //se v.iniciar() retornar true, significa que o site está no ar, e a próxima verificação será em 4 minutos
+            }            
         }        
     }        
     
-    public void iniciar(){
-        boolean b = pingHost(HOST,10000);
+    public boolean iniciar(){
+        boolean b = pingHost(HOST,TIMEOUT);
         if(!b){
             p.setStatus(true);
             p.setVisible(true);                  
@@ -43,6 +46,7 @@ public class VerificadorDeQuedaDeSites {
             p.setVisible(false);
             //System.out.println("Ok!");                
         }   
+        return b;
     }
     
     public static boolean pingHost(String url, int timeout) {        

@@ -8,3 +8,9 @@ Features:
 - Possui um timer para fazer blink na mensagem de Alerta;
 - Possui um while infinito com Thread.sleep para pará-lo
 
+Versão 0.2 - 12/02/2019:
+Adding:
+- Foi alterado o tempo de timeout e interval, o timeout é de 1 minuto e o interval de 4 minutos, totalizando 5 minutos; line: 21 e 22
+- a função iniciar foi alterada para retornar um valor booleano que será utilizando para definir o Thread.sleep; line: 39
+- Foi adicionado um if na função main() para tomar decisões diferentes em caso de o site estar ou não no ar. line: 31
+- Quando a função pingHost retornar true, significa que o site está no ar, e por isso a próxima verificação será em 4 minutos. line: 34
