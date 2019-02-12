@@ -21,6 +21,7 @@ public class VerificadorDeQuedaDeSites {
     final int TIMEOUT = 60000;    //timeout em milessegundos, 1 min
     final static int INTERVAL = 240000; //intervalo em milissegundos, 4 minutos
     final String HOST = "https://sig.ufabc.edu.br/sipac/"; //host ou página https
+    //final String HOST = "http://localhost:8088/";
     /**
      * @param args the command line arguments
      */
@@ -29,7 +30,7 @@ public class VerificadorDeQuedaDeSites {
         VerificadorDeQuedaDeSites v = new VerificadorDeQuedaDeSites();
         while(true){            
             if(!v.iniciar()){
-                Thread.sleep(60000); //se v.iniciar() retornar falso, significa que o site está fora do ar e por isso o site será checado a cada 60 segundos, que é o timeout da função pingHost().
+                Thread.sleep(1000); //se v.iniciar() retornar falso, significa que o site está fora do ar e por isso o site será checado a cada 1 segundos.
             }else{
                 Thread.sleep(INTERVAL); //se v.iniciar() retornar true, significa que o site está no ar, e a próxima verificação será em 4 minutos
             }            
