@@ -3,7 +3,7 @@ serve para verificar se um site https está online
 
 Este projeto foi feito em Java 8, utilizando o IDE Netbeans.
 
-Por meio dele é possível verificar se um site https está online. O tempo de verificação pode ser configurado, assim como o timeout, mas essas configurações devem ser feitas diretamente no código, não há interface gráfica para isso.
+Por meio dele é possível verificar se um site https está online. O tempo de verificação pode ser configurado, assim como o timeout e host, mas essas configurações devem ser feitas diretamente no código, não há interface gráfica para isso.
 
 Este programa pode ser útil para alguém.
 
