@@ -21,11 +21,11 @@ public class VerificadorDeQuedaDeSites {
     final int TIMEOUT = 60000;    //timeout em milessegundos, 1 min
     final static int INTERVAL = 240000; //intervalo em milissegundos, 4 minutos
     final String HOST = "https://sig.ufabc.edu.br/sipac/"; //host ou página https
-    //final String HOST = "http://localhost:8088/";
-    /**
-     * @param args the command line arguments
-     */
+    //final String HOST = "http://localhost:8080"; //host ou página https
+    
     PaginaForaDoAr p = new PaginaForaDoAr();
+    
+    
     public static void main(String[] args) throws InterruptedException {        
         VerificadorDeQuedaDeSites v = new VerificadorDeQuedaDeSites();
         while(true){            

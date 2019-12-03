@@ -5,11 +5,14 @@
  */
 package view;
 
+
+
+import java.awt.Frame;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.TimerTask;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import javax.swing.Timer;
 
 /**
@@ -19,7 +22,7 @@ import javax.swing.Timer;
 public class PaginaForaDoAr extends javax.swing.JFrame {
 
     private boolean status;//variável para checar se o site já voltou ao normal
-
+   
     public boolean isStatus() {
         return status;
     }
@@ -27,6 +30,8 @@ public class PaginaForaDoAr extends javax.swing.JFrame {
     public void setStatus(boolean status) {
         this.status = status;
     }
+    
+    
     /**
      * Creates new form PaginaForaDoAr
      */
@@ -46,6 +51,7 @@ public class PaginaForaDoAr extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jCheckBox2 = new javax.swing.JCheckBox();
 
         setTitle("ALERTA");
         setAlwaysOnTop(true);
@@ -71,10 +77,15 @@ public class PaginaForaDoAr extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 14, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        jCheckBox2.setText("Ocultar");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,14 +93,20 @@ public class PaginaForaDoAr extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jCheckBox2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addComponent(jCheckBox2))
         );
 
         pack();
@@ -107,6 +124,15 @@ public class PaginaForaDoAr extends javax.swing.JFrame {
         });
         tl.start();          
     }//GEN-LAST:event_formWindowOpened
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+        PaginaForaDoAr.this.setAutoRequestFocus(false);          
+        PaginaForaDoAr.this.setState(Frame.ICONIFIED);
+        if(jCheckBox2.isSelected()){
+            jCheckBox2.setSelected(false);
+        }
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void blink() {
         if(jLabel1.isVisible()){
@@ -155,6 +181,7 @@ public class PaginaForaDoAr extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
